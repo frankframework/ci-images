@@ -3,8 +3,8 @@
 
 FROM mcr.microsoft.com/mssql/server:2017-CU21-ubuntu-16.04
 WORKDIR /init
-COPY create_user.sql
-COPY dockerInit.sh
+COPY create_user.sql /init
+COPY dockerInit.sh /init
 ENV SA_PASSWORD MssqlPass123
 ENV ACCEPT_EULA Y
 ENV MSSQL_AGENT_ENABLED true
