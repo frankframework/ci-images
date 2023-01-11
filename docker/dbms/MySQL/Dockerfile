@@ -6,3 +6,6 @@ ENV innodb_lock_wait_timeout 5
 ENV wait_timeout 5
 ENV lock_wait_timeout 5
 ENV performance_schema 1
+# Change port so mysql can be run together with mariadb
+CMD ["mysqld", "--port", "3307"]
+EXPOSE 3307
