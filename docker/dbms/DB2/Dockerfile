@@ -15,7 +15,7 @@ ENV LICENSE=accept \
     ETCD_ENDPOINT= \
     ETCD_USERNAME= \
     ETCD_PASSWORD= \
-    ARCHIVE_LOGS=false 
+    ARCHIVE_LOGS=false
 
 COPY init_user.* /var/custom/
 
