@@ -1,11 +1,15 @@
 FROM mysql
+
+ENV TZ=Europe/Amsterdam \
+    MYSQL_ROOT_PASSWORD MySqlRootPassword \
+    innodb_lock_wait_timeout 5 \
+    wait_timeout 5 \
+    lock_wait_timeout 5 \
+    performance_schema 1
+
 COPY create_user.sql /docker-entrypoint-initdb.d/
-ENV TZ=Europe/Amsterdam
-ENV MYSQL_ROOT_PASSWORD MySqlRootPassword
-ENV innodb_lock_wait_timeout 5
-ENV wait_timeout 5
-ENV lock_wait_timeout 5
-ENV performance_schema 1
+
 # Change port so mysql can be run together with mariadb
 CMD ["mysqld", "--port", "3307"]
+
 EXPOSE 3307
