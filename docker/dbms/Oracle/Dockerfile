@@ -1,5 +1,5 @@
-## Refer to the readme on how to create a base image to use
-ARG BASE_IMAGE=nexus.frankframework.org/private/oracle/database:21.3.0-xe
+# Refer to the readme on how to create a base image to use
+ARG BASE_IMAGE=private.docker.nexus.frankframework.org/oracle/database:21.3.0-xe-prebuild
 FROM ${BASE_IMAGE}
 
 # Copy in setup scripts
