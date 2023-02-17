@@ -16,7 +16,6 @@
 # under the License.
 
 # ActiveMQ Artemis
-
 FROM openjdk:8-jre-slim
 
 # Make sure pipes are considered to determine success, see: https://github.com/hadolint/hadolint/wiki/DL4006
@@ -24,17 +23,17 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 WORKDIR /opt
 
 # artemis version (latest java 8 compatible)
-ENV ARTEMIS_VERSION 2.19.1
-
+ENV ARTEMIS_VERSION=2.19.1
 
 # Download Apache Artemis
-RUN apt-get update && apt-get install -y wget --no-install-recommends \
-	&& wget -q -O artemis.tar.gz https://downloads.apache.org/activemq/activemq-artemis/${ARTEMIS_VERSION}/apache-artemis-${ARTEMIS_VERSION}-bin.tar.gz --no-check-certificate \
-	&& tar -xvf artemis.tar.gz \
-	&& rm artemis.tar.gz \
-	&& mv apache-artemis-${ARTEMIS_VERSION} activemq-artemis \
-	&& apt-get clean \
-	&& rm -rf /var/lib/apt/lists/*
+RUN apt-get update &&\
+	apt-get install -y wget --no-install-recommends &&\
+	wget -q -O artemis.tar.gz https://archive.apache.org/dist/activemq/activemq-artemis/${ARTEMIS_VERSION}/apache-artemis-${ARTEMIS_VERSION}-bin.tar.gz &&\
+	tar -xvf artemis.tar.gz &&\
+	rm artemis.tar.gz &&\
+	mv apache-artemis-${ARTEMIS_VERSION} activemq-artemis &&\
+	apt-get clean &&\
+	rm -rf /var/lib/apt/lists/*
 
 COPY ./docker-run.sh /
 RUN chmod +rx /*.sh
