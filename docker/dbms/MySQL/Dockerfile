@@ -9,4 +9,7 @@ ENV TZ=Europe/Amsterdam \
 
 COPY create_user.sql /docker-entrypoint-initdb.d/
 
-EXPOSE 3306
+RUN echo "[mysqld]" >> /etc/my.cnf
+RUN echo "port=3307" >> /etc/my.cnf
+
+EXPOSE 3307
