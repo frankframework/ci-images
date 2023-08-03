@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 
-cd "$(dirname "$0")" || exit 1
+WORKING_DIR="$(dirname "$0")"
+cd "$WORKING_DIR" || exit 1
 
-for dir in */ ; do
-  echo "$(pwd)/$dir"
-  old_dir="$(pwd)"
-  "$(pwd)/$dir/rebuild.sh"
-  cd "$old_dir" || exit 1
+for DIR in */ ; do
+  echo "$WORKING_DIR/$DIR"
+  "$WORKING_DIR/$DIR/rebuild.sh"
 done
