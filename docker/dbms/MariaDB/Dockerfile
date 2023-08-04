@@ -1,4 +1,4 @@
-FROM mariadb
+FROM mariadb:11.0.2
 
 COPY create_user.sql /docker-entrypoint-initdb.d/
 
