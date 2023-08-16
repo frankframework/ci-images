@@ -1,4 +1,4 @@
-FROM ibmcom/db2
+FROM ibmcom/db2:11.5.8.0
 
 ENV LICENSE=accept \
     DB2INSTANCE=db2inst1 \
