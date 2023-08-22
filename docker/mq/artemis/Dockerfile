@@ -35,12 +35,12 @@ RUN apt-get update &&\
 	apt-get clean &&\
 	rm -rf /var/lib/apt/lists/*
 
-COPY ./docker-run.sh /
-RUN chmod +rx /*.sh
+COPY run-scripts/ /run-scripts/
+RUN chmod -R +rx /run-scripts
 
 # Expose some outstanding folders
 VOLUME ["/var/lib/artemis-instance"]
 WORKDIR /var/lib/artemis-instance
 
-ENTRYPOINT ["/docker-run.sh"]
+ENTRYPOINT ["/run-scripts/docker-run.sh"]
 CMD ["run"]

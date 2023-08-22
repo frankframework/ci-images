@@ -1,8 +1,8 @@
-version: "3"
+version: '3.8'
+
 services:
-  mysqlserver:
-    image: iaf-test-db-mysql
-    command: --default-authentication-plugin=mysql_native_password
-    restart: unless-stopped
+  mysql:
+    image: private.docker.nexus.frankframework.org/ff-test/dbms/mysql
+    build: .
     ports:
       - "3307:3307"

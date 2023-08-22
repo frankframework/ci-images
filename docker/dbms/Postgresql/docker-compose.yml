@@ -1,7 +1,8 @@
-version: "3.1"
+version: '3.8'
+
 services:
-  postgresql:
-    image: iaf-test-db-postgresql
-    restart: unless-stopped
+  postgres:
+    image: private.docker.nexus.frankframework.org/ff-test/dbms/postgresql
+    build: .
     ports:
-      - 5432:5432
+      - "5432:5432"

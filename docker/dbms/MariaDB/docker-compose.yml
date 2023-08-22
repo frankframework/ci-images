@@ -1,8 +1,8 @@
-version: "3"
+version: '3.8'
+
 services:
-  mariadbserver:
-    image: iaf-test-db-mariadb
-    command: --default-authentication-plugin=mysql_native_password
-    restart: unless-stopped
+  mariadb:
+    image: private.docker.nexus.frankframework.org/ff-test/dbms/mariadb
+    build: .
     ports:
-      - 3306:3306
+      - "3306:3306"

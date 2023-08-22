@@ -1,1 +1,0 @@
-docker run --name iaf-test-db-db2 --privileged -p 50000:50000 --env-file env_list.txt iaf-test-db-db2

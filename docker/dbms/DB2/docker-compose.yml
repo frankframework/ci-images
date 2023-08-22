@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  db2:
+    image: private.docker.nexus.frankframework.org/ff-test/dbms/db2
+    build: .
+    privileged: true
+    ports:
+      - "50000:50000"

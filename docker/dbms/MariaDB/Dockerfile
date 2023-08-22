@@ -1,6 +1,6 @@
 FROM mariadb:11.0.2
 
-COPY create_user.sql /docker-entrypoint-initdb.d/
+COPY install-scripts/ /docker-entrypoint-initdb.d/
 
 ENV TZ=Europe/Amsterdam \
     MYSQL_ROOT_PASSWORD=MySqlRootPassword \

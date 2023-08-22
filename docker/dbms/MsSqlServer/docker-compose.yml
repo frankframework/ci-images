@@ -1,11 +1,8 @@
-version: "3"
+version: '3.8'
+
 services:
-    ms-sqlserver:
-        image: iaf-test-db-mssql
-        restart: unless-stopped
-        volumes:
-          - db_data:/var/opt/mssql
-        ports:
-            - "1433:1433"
-volumes:
-  db_data:
+  mssql:
+    image: private.docker.nexus.frankframework.org/ff-test/dbms/mssqlserver
+    build: .
+    ports:
+      - "1433:1433"
