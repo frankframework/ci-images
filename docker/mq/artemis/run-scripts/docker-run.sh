@@ -28,7 +28,7 @@ CONFIG_PATH=$BROKER_HOME/etc
 export BROKER_HOME OVERRIDE_PATH CONFIG_PATH
 
 if ! [ -f ./etc/broker.xml ]; then
-	/opt/activemq-artemis/bin/artemis create --default-port 61615 --http-port 8160 --http-host 0.0.0.0 --allow-anonymous --silent --relax-jolokia .
+	/opt/activemq-artemis/bin/artemis create --default-port 61615 --http-port 8160 --http-host 0.0.0.0 --allow-anonymous --silent --disable-persistence --relax-jolokia .
 else
 	echo "broker already created, ignoring creation"
 fi
