@@ -36,7 +36,7 @@ Now use Docker compose to build the image defined in the compose file.
 docker compose build
 ```
 
-The image will be created and tagged. You can now [run the container](#Run the container).
+The image will be created and tagged. You can now [run the container](#run-the-container).
 
 #### Download the image
 
