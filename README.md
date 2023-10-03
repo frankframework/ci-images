@@ -48,7 +48,7 @@ Login by typing:
 docker login private.docker.nexus.frankframework.org
 ```
 
-Now you can [run the containers](#Run the container) without building them.
+Now you can [run the containers](#run-the-container) without building them.
 
 #### Run the container
 
