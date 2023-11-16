@@ -1,0 +1,6 @@
+services:
+  jdk:
+    image: private.docker.nexus.frankframework.org/ff-test/build/jdk11
+    build: .
+    command: "9999999"
+    entrypoint: sleep
