@@ -27,7 +27,7 @@ Navigate to the directory of the desired image.
 For example:
 
 ```shell
-cd docker/dbms/Postgresql
+cd dbms/Postgresql
 ```
 
 Now use Docker compose to build the image defined in the compose file.
@@ -57,7 +57,7 @@ Navigate to the directory of the desired container.
 For example:
 
 ```shell
-cd docker/dbms/Postgresql
+cd dbms/Postgresql
 ```
 
 Now use Docker compose to run the container defined in the compose file.
