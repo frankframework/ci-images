@@ -1,3 +1,1 @@
-FROM rmohr/activemq:5.15.9-alpine
-
-CMD /bin/sh -c /opt/activemq/bin/activemq console
+FROM apache/activemq-classic:5.18.3
