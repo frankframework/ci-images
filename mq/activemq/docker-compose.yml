@@ -4,9 +4,5 @@ services:
   activemq:
     image: private.docker.nexus.frankframework.org/ff-test/mq/activemq
     build: .
-    entrypoint:
-      - "/bin/sh"
-      - "-c"
-      - "/opt/activemq/bin/activemq console"
     ports:
       - "61616:61616"
