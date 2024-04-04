@@ -6,7 +6,7 @@ Auxiliary images to assist during the test pipelines in the Continuous Integrati
 
 These instructions will cover usage information and for the Docker container
 
-### Prerequisities
+### Prerequisites
 
 In order to run this container you'll need docker installed.
 Instructions can be found on the [Docker documentation website](https://docs.docker.com/engine/install/).
@@ -40,7 +40,7 @@ The image will be created and tagged. You can now [run the container](#run-the-c
 
 #### Download the image
 
-All images are prebuild on our private Nexus.
+All images are prebuilt on our private Nexus.
 This means that you need to be authorized with your Nexus account, before you can download them.
 
 Login by typing:
@@ -68,4 +68,4 @@ docker compose up
 
 ### Known issues
 
-The Oracle image can't be build with Kaniko
+The Oracle image can't be built with Kaniko
