@@ -9,5 +9,5 @@ services:
       - 138:138/udp
       - 445:445
     image: scitotec/test-samba-share
-    command: -p -u 'foo;badpass' -u 'bar;badpass' 
-       -s 'pics;/tmp/shares/pics;yes;no;yes;foo'
+    command: -p -u 'frankframework;pass_123' 
+       -s 'home;/tmp/shares/home;yes;no;yes;frankframework'
