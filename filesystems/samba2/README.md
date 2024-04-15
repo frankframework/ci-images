@@ -3,11 +3,11 @@
 Samba is the standard Windows interoperability suite of programs for Linux and Unix.
 
 ## Run Samba Docker Compose File.
-docker-compose up --build
+docker-compose up
 
 ## How to connect to Samba Share
-Use user `foo` with password `badpass` to connect to share `pics`
-on `localhost`, using port 445, with SMB2 and NTLM authentication.
+Use user `frankframework` with password `pass_123` to connect to share `home`
+on `localhost`, using port `446`, with SMB2 and NTLM authentication.
 
 ## Reference
 

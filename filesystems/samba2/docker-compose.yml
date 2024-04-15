@@ -1,13 +1,9 @@
-name: samba2
 services:
-  test-samba-share:
-    volumes:
-      - ./smb.conf:/etc/samba/smb.conf
+  samba2:
+    image: private.docker.nexus.frankframework.org/ff-test/filesystems/samba2
+    build: .
     ports:
       - 139:139
       - 137:137/udp
       - 138:138/udp
-      - 445:445
-    image: scitotec/test-samba-share
-    command: -p -u 'frankframework;pass_123' 
-       -s 'home;/tmp/shares/home;yes;no;yes;frankframework'
+      - 446:445
