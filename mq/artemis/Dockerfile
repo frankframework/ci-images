@@ -2,7 +2,6 @@
 FROM apache/activemq-artemis:2.33.0
 
 COPY run-scripts/ /run-scripts/
-#RUN chmod -R +rx /run-scripts
 
 # Expose some outstanding folders
 VOLUME ["/var/lib/artemis-instance"]
