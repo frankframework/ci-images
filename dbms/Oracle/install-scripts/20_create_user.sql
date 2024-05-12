@@ -4,6 +4,7 @@
 -- Note that this can only be used if you don't use pluggable databases!
 alter session set "_ORACLE_SCRIPT"=true;
 
+ALTER PROFILE DEFAULT LIMIT PASSWORD_LIFE_TIME UNLIMITED;
 
 --Drop user testiaf_user cascade;
 
