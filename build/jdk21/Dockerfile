@@ -6,4 +6,4 @@ RUN microdnf install -y \
     git \
     nodejs
 
-RUN wget -qO- https://get.pnpm.io/install.sh | ENV="$HOME/.bashrc" SHELL="/bin/bash" bash -
+RUN npm install -g pnpm
