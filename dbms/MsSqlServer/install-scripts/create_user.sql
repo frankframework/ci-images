@@ -9,7 +9,7 @@ print 'enable jdbc XA support';
 EXEC sp_sqljdbc_xa_install
 
 print 'create user testiaf_user';
-CREATE LOGIN testiaf_user WITH PASSWORD = 'testiaf_user00';
+CREATE LOGIN testiaf_user WITH PASSWORD = 'testiaf_user00', CHECK_POLICY=OFF;
 GO
 
 CREATE USER testiaf_user FOR LOGIN testiaf_user WITH DEFAULT_SCHEMA=[dbo];
