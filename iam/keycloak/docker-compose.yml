@@ -6,6 +6,3 @@ services:
     ports:
       - 8888:8080
     restart: unless-stopped
-    volumes:
-      - "./shared:/opt/shared"
-    container_name: keycloak
