@@ -1,8 +1,0 @@
-name: keycloak
-
-services:
-  keycloak:
-    image: private.docker.nexus.frankframework.org/ff-test/iam/keycloak
-    ports:
-      - 8888:8080
-    restart: unless-stopped
