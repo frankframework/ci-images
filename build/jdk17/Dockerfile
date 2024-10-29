@@ -1,5 +1,7 @@
 FROM eclipse-temurin:17.0.11_9-jdk-jammy
 
+RUN curl -sL https://deb.nodesource.com/setup_22.x | bash
+
 RUN apt update && apt install -y ca-certificates curl && \
     install -m 0755 -d /etc/apt/keyrings && \
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc && \
@@ -12,8 +14,7 @@ RUN apt update && apt install -y ca-certificates curl && \
     docker-ce-cli \
     git \
     gnupg \
-    nodejs \
-    npm && \
+    nodejs && \
     apt clean && rm -rf /var/lib/apt/lists/*
 
-RUN npm install -g pnpm
+RUN corepack enable pnpm
