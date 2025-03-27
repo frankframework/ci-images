@@ -3,6 +3,9 @@ version: '3.8'
 services:
   oracle:
     image: ghcr.io/frankframework/dbms/oracle
-    build: .
+    build:
+      context: .
+      args:
+        BUILDKIT_SANDBOX_HOSTNAME: localhost
     ports:
       - "1521:1521"
