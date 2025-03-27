@@ -1,6 +1,6 @@
 services:
   samba2:
-    image: private.docker.nexus.frankframework.org/ff-test/filesystems/samba2
+    image: ghcr.io/frankframework/filesystems/samba2
     build: .
     ports:
       - 137:137/udp

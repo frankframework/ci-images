@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   mssql:
-    image: private.docker.nexus.frankframework.org/ff-test/dbms/mssqlserver
+    image: ghcr.io/frankframework/dbms/mssqlserver
     build: .
     ports:
       - "1433:1433"

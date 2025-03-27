@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   activemq:
-    image: private.docker.nexus.frankframework.org/ff-test/mq/activemq
+    image: ghcr.io/frankframework/mq/activemq
     build: .
     ports:
       - "61616:61616"

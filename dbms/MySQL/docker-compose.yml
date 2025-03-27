@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   mysql:
-    image: private.docker.nexus.frankframework.org/ff-test/dbms/mysql
+    image: ghcr.io/frankframework/dbms/mysql
     build: .
     ports:
       - "3307:3307"

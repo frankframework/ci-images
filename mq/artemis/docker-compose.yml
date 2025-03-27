@@ -1,6 +1,6 @@
 services:
   artemis:
-    image: private.docker.nexus.frankframework.org/ff-test/mq/artemis:latest
+    image: ghcr.io/frankframework/mq/artemis:latest
     build: .
     ports:
       - "8160:8160"
