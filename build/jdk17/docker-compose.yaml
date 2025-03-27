@@ -1,6 +1,6 @@
 services:
   jdk:
-    image: private.docker.nexus.frankframework.org/ff-test/build/jdk17
+    image: ghcr.io/frankframework/build/jdk17
     build: .
     command: "9999999"
     entrypoint: sleep

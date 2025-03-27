@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   oracle:
-    image: private.docker.nexus.frankframework.org/ff-test/dbms/oracle
+    image: ghcr.io/frankframework/dbms/oracle
     build: .
     ports:
       - "1521:1521"

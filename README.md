@@ -8,7 +8,7 @@ These instructions will cover usage information and for the Docker container
 
 ### Prerequisites
 
-In order to run this container you'll need docker installed.
+In order to run this container you'll need Docker installed.
 Instructions can be found on the [Docker documentation website](https://docs.docker.com/engine/install/).
 
 For Linux the CLI tool (Docker engine "server") is recommended.
@@ -40,15 +40,33 @@ The image will be created and tagged. You can now [run the container](#run-the-c
 
 #### Download the image
 
-All images are prebuilt on our private Nexus.
-This means that you need to be authorized with your Nexus account, before you can download them.
+All images are prebuilt on the GitHub Container Registry, but are not publically accassible. 
+This is done becouse we do not want to redistribute the images and to prevent accedental use of them.
+This means that you need to be authorized with your GitHub account and have access, before you can download them.
 
 Login by typing:
 ```shell
-docker login private.docker.nexus.frankframework.org
+docker login ghcr.io
 ```
 
 Now you can [run the containers](#run-the-container) without building them.
+
+#### Build the image
+
+
+Navigate to the directory of the desired image.
+
+For example:
+
+```shell
+cd dbms/Postgresql
+```
+
+Now use Docker compose to build the image defined in the compose file.
+
+```shell
+docker compose build
+```
 
 #### Run the container
 
@@ -66,6 +84,7 @@ Now use Docker compose to run the container defined in the compose file.
 docker compose up
 ```
 
-### Known issues
+### Troubleshooting
 
-The Oracle image can't be built with Kaniko
+* The Oracle images needs a prebuild base image, if you cannot download it from the private GHCR, you can follow [these instructions](https://github.com/oracle/docker-images/tree/main/OracleDatabase/SingleInstance) to build it yourself. 
+* The Oracle image can't be built with Kaniko.
