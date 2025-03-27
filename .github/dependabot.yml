@@ -6,6 +6,8 @@
 version: 2
 updates:
   - package-ecosystem: "docker" # See documentation for possible values
-    directory: "/" # Location of package manifests
+    directories:
+      # Globstar only works like this: https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#directories
+      - "/**/*"
     schedule:
       interval: "weekly"
