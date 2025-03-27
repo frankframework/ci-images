@@ -1,0 +1,109 @@
+name: Build and Publish Docker Images
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - '**/Dockerfile'
+      - '.github/workflows/build-publish-docker-images.yml'
+  pull_request:
+    paths:
+      - '**/Dockerfile'
+      - '.github/workflows/build-publish-docker-images.yml'
+  workflow_dispatch:  # Allow manual triggering
+
+jobs:
+  find-dockerfiles:
+    name: Find Dockerfiles
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v3
+
+      - name: Find all Dockerfiles
+        id: find-dockerfiles
+        run: |
+          DOCKERFILES=$(find . -name "Dockerfile" -not -path "*/\.*" | sort)
+          echo "Found Dockerfiles:"
+          echo "$DOCKERFILES"
+          
+          # Convert to JSON array with path and image name
+          JSON_ARRAY="["
+          FIRST=true
+          for dockerfile in $DOCKERFILES; do
+            DIR=$(dirname "$dockerfile")
+            # Remove leading ./ from path
+            DIR=${DIR#./}
+            # Use directory path as image name, replacing / with -
+            IMAGE_NAME=${DIR}
+            
+            if [ "$FIRST" = true ]; then
+              FIRST=false
+            else
+              JSON_ARRAY+=","
+            fi
+            
+            JSON_ARRAY+="{\"dockerfile\":\"$dockerfile\",\"context\":\"$DIR\",\"image_name\":\"$IMAGE_NAME\"}"
+          done
+          JSON_ARRAY+="]"
+          
+          echo "matrix=$JSON_ARRAY" >> $GITHUB_OUTPUT
+
+      - name: Set Matrix Output
+        id: set-matrix
+        run: |
+          MATRIX=$(cat << EOF
+          ${{ steps.find-dockerfiles.outputs.matrix }}
+          EOF
+          )
+          echo "matrix=$MATRIX" >> $GITHUB_OUTPUT
+
+  build-and-push:
+    needs: find-dockerfiles
+    name: Build and Push Docker Images
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        dockerfile: ${{ fromJson(needs.find-dockerfiles.outputs.matrix) }}
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+        if: github.event_name != 'pull_request'
+
+      - name: Extract metadata for Docker
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: |
+            ghcr.io/${{ github.repository_owner }}/${{ matrix.dockerfile.image_name }}
+          tags: |
+            type=raw,value=latest,enable=${{ github.ref == format('refs/heads/{0}', github.event.repository.default_branch) }}
+            type=sha,prefix=
+            type=ref,event=branch
+            type=ref,event=tag
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v4
+        with:
+          context: ${{ matrix.dockerfile.context }}
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
