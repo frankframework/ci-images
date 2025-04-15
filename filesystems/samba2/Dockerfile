@@ -1,4 +1,4 @@
-FROM scitotec/test-samba-share:0.1.0
+FROM scitotec/test-samba-share:0.1.1
 
 COPY config/* /etc/samba/
 
