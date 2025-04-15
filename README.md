@@ -88,3 +88,6 @@ docker compose up
 
 * The Oracle images needs a prebuild base image, if you cannot download it from the private GHCR, you can follow [these instructions](https://github.com/oracle/docker-images/tree/main/OracleDatabase/SingleInstance) to build it yourself. 
 * The Oracle image can't be built with Kaniko.
+
+### Security
+See [SECURITY.md](https://github.com/frankframework/frankframework/blob/master/SECURITY.md#ci-images) for more information about the dependabot process for these images in the Frank!Framework repository.
