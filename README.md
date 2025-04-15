@@ -90,4 +90,4 @@ docker compose up
 * The Oracle image can't be built with Kaniko.
 
 ### Security
-See [SECURITY.md](https://github.com/frankframework/frankframework/blob/master/SECURITY.md) for more information about the dependabot process for these images in the Frank!Framework repository.
+See [SECURITY.md](https://github.com/frankframework/frankframework/blob/master/SECURITY.md#ci-images) for more information about the dependabot process for these images in the Frank!Framework repository.
