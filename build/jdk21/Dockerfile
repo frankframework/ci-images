@@ -1,4 +1,4 @@
-FROM eclipse-temurin:21.0.6_7-jdk-jammy
+FROM eclipse-temurin:21.0.7_6-jdk-jammy
 
 RUN curl -sL https://deb.nodesource.com/setup_22.x | bash
 
