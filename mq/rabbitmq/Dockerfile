@@ -1,4 +1,4 @@
-FROM rabbitmq:4.0.5-management
+FROM rabbitmq:4.1.0-management
 
 COPY run-scripts/ /run-scripts/
 
