@@ -1,4 +1,4 @@
-FROM influxdb:2.4.0
+FROM influxdb:2.7.11
 
 ENV INFLUXD_REPORTING_DISABLED=true
 
