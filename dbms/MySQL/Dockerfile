@@ -1,4 +1,4 @@
-FROM mysql:9.3.0
+FROM mysql:9.4.0
 
 ENV TZ=Europe/Amsterdam \
     MYSQL_ROOT_PASSWORD=MySqlRootPassword \
