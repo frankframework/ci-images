@@ -1,1 +1,1 @@
-FROM apache/activemq-classic:6.1.7
+FROM apache/activemq-classic:6.1.8
