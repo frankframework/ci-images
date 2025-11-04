@@ -1,5 +1,5 @@
 # ActiveMQ Artemis official image
-FROM apache/activemq-artemis:2.43.0
+FROM apache/activemq-artemis:2.44.0
 
 COPY run-scripts/ /run-scripts/
 
