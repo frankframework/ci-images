@@ -1,0 +1,6 @@
+services:
+  jmeter:
+    image: ghcr.io/frankframework/tools/jmeter
+    build: .
+    entrypoint: sleep
+    command: "9999999"
