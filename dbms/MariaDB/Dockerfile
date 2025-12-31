@@ -1,4 +1,4 @@
-FROM mariadb:12.0.2
+FROM mariadb:12.1.2
 
 COPY install-scripts/ /docker-entrypoint-initdb.d/
 
