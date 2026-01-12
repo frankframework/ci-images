@@ -1,0 +1,6 @@
+services:
+  jdk:
+    image: ghcr.io/frankframework/build/jdk25
+    build: .
+    command: "9999999"
+    entrypoint: sleep
