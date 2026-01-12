@@ -13,6 +13,7 @@ RUN apt update && apt install -y ca-certificates curl gnupg && \
     curl -fsSL https://dl-ssl.google.com/linux/linux_signing_key.pub | gpg --dearmor -o /etc/apt/keyrings/google-chrome.gpg && \
     echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/google-chrome.gpg] http://dl.google.com/linux/chrome/deb/ stable main" | \
       tee /etc/apt/sources.list.d/google-chrome.list > /dev/null && \
+    curl -fsSL https://deb.nodesource.com/setup_22.x | bash - && \
     apt update && apt install -y \
     docker-ce-cli \
     git \
