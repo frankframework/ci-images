@@ -1,0 +1,6 @@
+services:
+  keycloak:
+    image: ghcr.io/frankframework/idp/keycloak
+    build: .
+    ports:
+      - "9080:9080"
