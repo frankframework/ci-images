@@ -1,4 +1,4 @@
-FROM eclipse-temurin:25.0.1_8-jdk-jammy
+FROM eclipse-temurin:25.0.2_10-jdk-jammy
 
 RUN apt update && apt install -y ca-certificates curl gnupg && \
     install -m 0755 -d /etc/apt/keyrings && \
