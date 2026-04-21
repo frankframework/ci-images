@@ -1,4 +1,4 @@
-FROM keycloak/keycloak:26.5
+FROM keycloak/keycloak:26.6
 
 ENV KC_HTTP_PORT=9080 \
     KC_BOOTSTRAP_ADMIN_USERNAME=frank@framework.org \
