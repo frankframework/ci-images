@@ -1,1 +1,1 @@
-FROM apache/kafka:4.1.1
+FROM apache/kafka:4.2.0
