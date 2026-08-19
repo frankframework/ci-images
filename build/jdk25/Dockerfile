@@ -30,3 +30,8 @@ RUN apt update && apt install -y ca-certificates curl gnupg && \
     apt clean && rm -rf /var/lib/apt/lists/*
 
 RUN corepack enable pnpm
+
+# Raise the open file limit so Chrome (used in CI browser tests) doesn't crash
+RUN mkdir -p /etc/security/limits.d && \
+    printf '* soft nofile 1048576\n* hard nofile 1048576\nroot soft nofile 1048576\nroot hard nofile 1048576\n' > /etc/security/limits.d/99-nofile.conf && \
+    echo 'session required pam_limits.so' >> /etc/pam.d/common-session
